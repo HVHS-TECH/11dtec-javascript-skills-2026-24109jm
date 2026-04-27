@@ -1,5 +1,5 @@
 /****************************
-Variables
+Maths
 ****************************/
 
 /****************************
@@ -18,7 +18,7 @@ let face;
 Main Code
 ****************************/
 
-console.log("Running t02_introduction.js");
+console.log("Running maths.js");
 
 function getFace(ammount) {
     if (ammount >= 100){
