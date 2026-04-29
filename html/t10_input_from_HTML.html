@@ -19,15 +19,21 @@
   <h1>T10-input from HTML</h1>
   <p>Open the console <code>(Ctrl-shift-i)</code> to see the messages.</p>
 
-  <p><br><br><i>Copy your HTML from the last task and keep building.</i><br><br><br><br></p>
-
-
+  <form onsubmit="return false;">
+    <label for="formName">Name:</label>
+    <input type="text" id="nameField">
+    <br>
+    <label for="formBirthday">Birthday (dd/mm/yyyy):</label>
+    <input type="text" id="birthdayField">
+    <br>
+    <label for="formMoney">Money ammount:</label>
+    <input type="text" id="moneyField">
+    <input type="submit" onclick="start()">
+  </form>
+  
   <div id="spaceForJavaScriptOutput">
 
-    The output of your script will go here.
-
   </div>
-
 
   <script src="../t10_input_from_HTML.js"></script>
 

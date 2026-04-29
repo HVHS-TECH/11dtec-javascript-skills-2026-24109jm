@@ -24,7 +24,7 @@ let birthYear = year - age - (hadBirthday ? 0 : 1);
 Main Code
 ****************************/
 
-console.log("Running t07functions_parameters.js");
+console.log("Running t07_functions_parameters.js");
 
 function getFace(amount) {
     if (amount >= 100){
