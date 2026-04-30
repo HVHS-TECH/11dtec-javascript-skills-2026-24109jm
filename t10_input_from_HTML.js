@@ -10,22 +10,27 @@ function start() {
     const BIRTHDAY_FIELD = document.getElementById("birthdayField");
     const MONEY_FIELD = document.getElementById("moneyField");
     let name = NAME_FIELD.value;
-    let age = 15;
+    let birthday = BIRTHDAY_FIELD.value;
+    let parts = birthday.split("/");
+    let day = new Date();
+    let dayBorn = parseInt(parts[0]);
+    let monthBorn = parseInt(parts[1]) - 1;
+    let yearBorn = parseInt(parts[2]);
+    let birthDate = new Date(yearBorn, monthBorn, dayBorn);
+    let age = day.getFullYear() - birthDate.getFullYear();
     let money = MONEY_FIELD.value.replace('$', '');
     let halfMoney = money / 2;
     let halfMoney3 = halfMoney + 3;
-    let day = new Date();
     let year = day.getFullYear();
-    let birthMonth = 8;
-    let birthday = 14;
     let hadBirthday =
-        (day.getMonth() + 1 > birthMonth) ||
-        (day.getMonth() + 1 === birthMonth && day.getDate() >= birthday);
-    let birthYear = year - age - (hadBirthday ? 0 : 1);
+        (day.getMonth() > monthBorn) ||
+        (day.getMonth() === monthBorn && day.getDate() >= dayBorn);
 
     /****************************
     Main Code
     ****************************/
+
+    if (!hadBirthday) age--;
 
     console.log("Running t10_input_from_HTML.js");
 
@@ -50,7 +55,7 @@ function start() {
 
     OUTPUT.innerHTML = "<p>Hi, "+ name +".</p>"
     OUTPUT.innerHTML += "<p>As of "+ year +", you are "+ age +" years old.</p>";
-    OUTPUT.innerHTML += "<p>You were born in "+ birthYear +".</p>";
+    OUTPUT.innerHTML += "<p>You were born in "+ yearBorn +".</p>";
     OUTPUT.innerHTML += "<p>In 10 years, you will be "+ (age + 10) +" years old.</p>";
     OUTPUT.innerHTML += "<p>You have $"+ money + " "+ getFace(money) +" </p>";
     OUTPUT.innerHTML += "<p>If you spend half of your money, you will have $"+ (money / 2) +" "+ getFace(halfMoney) +"</p>";
