@@ -17,6 +17,7 @@ function start() {
     let monthBorn = parseInt(parts[1]) - 1;
     let yearBorn = parseInt(parts[2]);
     let birthDate = new Date(yearBorn, monthBorn, dayBorn);
+    birthDate.setFullYear(yearBorn);
     let age = day.getFullYear() - birthDate.getFullYear();
     let money = MONEY_FIELD.value.replace('$', '');
     let halfMoney = money / 2;
