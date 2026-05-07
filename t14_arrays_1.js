@@ -9,6 +9,9 @@ function start() {
     const NAME_FIELD = document.getElementById("nameField");
     const BIRTHDAY_FIELD = document.getElementById("birthdayField");
     const MONEY_FIELD = document.getElementById("moneyField");
+    const CHOCOLATE_FIELD = document.getElementById("chocolateField");
+    const CHIPS_FIELD = document.getElementById("chipsField");
+    const DRINK_FIELD = document.getElementById("drinkField");
     let name = NAME_FIELD.value;
     let birthday = BIRTHDAY_FIELD.value;
     let parts = birthday.split("/");
@@ -26,6 +29,10 @@ function start() {
     let hadBirthday =
         (day.getMonth() > monthBorn) ||
         (day.getMonth() === monthBorn && day.getDate() >= dayBorn);
+
+    let chocolateArray = ["You HATE chocolate 😭", "You really don’t like chocolate.", "You’re not much of a chocolate person.", "You only like chocolate sometimes.", "You feel neutral about chocolate.", "You kinda like chocolate.", "You’re a chocolate fan.", "You really love chocolate!", "You’re obsessed with chocolate 😍", "You LIVE for chocolate 🍫✨"]
+    let chipsArray = ["You HATE chips 😭", "You really don’t like chips.", "You’re not much of a chips person.", "You only like chips sometimes.", "You feel neutral about chips.", "You kinda like chips.", "You’re a chips fan.", "You really love chips!", "You’re obsessed with chips 😍", "You LIVE for chips 🍟✨"]
+    let drinkArray = ["You HATE a drink 😭", "You really don’t like a drink.", "You’re not much of a drink person.", "You only like a drink sometimes.", "You feel neutral about a drink.", "You kinda like a drink.", "You’re a drink fan.", "You really love a drink!", "You’re obsessed with a drink 😍", "You LIVE for a drink 🥤✨"]
 
     /****************************
     Main Code
