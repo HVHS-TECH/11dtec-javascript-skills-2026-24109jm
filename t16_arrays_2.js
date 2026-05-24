@@ -1,6 +1,21 @@
 /****************************
-Arrays 1
+Arrays 2
 ****************************/
+
+/****************************
+Stuff Outside Of Start
+****************************/
+
+let listArray = []
+
+function addList(_name) {
+    listArray.push(_name);
+}
+
+function displayList() {
+    const OUTPUT = document.getElementById("spaceForJavaScriptOutput");
+    OUTPUT.innerHTML += "<p>These are the items on your shopping list: "+ listArray.join(", ") +"</p>"
+}
 
 /****************************
 Variables
@@ -31,9 +46,14 @@ function start() {
         (day.getMonth() === monthBorn && day.getDate() >= dayBorn);
     let afford;
 
+    /****************************
+    Arrays
+    ****************************/
+
     let chocolateArray = ["You HATE chocolate 😭", "You really don’t like chocolate.", "You’re not much of a chocolate person.", "You dislike chocolate slightly more than you like them.", "You feel neutral about chocolate.", "You kinda like chocolate.", "You’re a chocolate fan.", "You really love chocolate!", "You’re obsessed with chocolate 😍", "You LIVE for chocolate 🍫✨"]
     let chipsArray = ["You HATE chips 😭", "You really don’t like chips.", "You’re not much of a chips person.", "You dislike chips slightly more than you like them.", "You feel neutral about chips.", "You kinda like chips.", "You’re a chips fan.", "You really love chips!", "You’re obsessed with chips 😍", "You LIVE for chips 🍟✨"]
     let drinkArray = ["You HATE drinks 😭", "You really don’t like drinks.", "You’re not much of a drinks person.", "You dislike drinks slightly more than you like them.", "You feel neutral about drinks.", "You kinda like drinks.", "You’re a drinks fan.", "You really love drinks!", "You’re obsessed with drinks 😍", "You LIVE for drinks 🥤✨"]
+
 
     /****************************
     Main Code
@@ -41,7 +61,7 @@ function start() {
 
     if (!hadBirthday) age--;
 
-    console.log("Running t14_arrays_1.js");
+    console.log("Running t16_arrays_2.js");
 
     function getFace(amount, want) {
         if (amount >= want){
@@ -69,8 +89,7 @@ function start() {
     }
 
     function like(array, field) {
-        OUTPUT.innerHTML += "<p>" + array[Number(field.value) - 1] + "</p>";
-        OUTPUT.innerHTML += "<br>"
+        OUTPUT.innerHTML += "<p>"+ array[Number(field.value) - 1] +"</p>";
     }
     
     function displayProduct(_name, _price, array, field) {
@@ -83,6 +102,8 @@ function start() {
         OUTPUT.innerHTML += "<p> The "+ _name +" costs $"+ _price +". "+ afford + _name +" "+ getFace(money, _price)+ " </p>";
         calculateChange(money, _price)
         like(array, field)
+        OUTPUT.innerHTML += "<button onclick=\"addList('"+ _name +"')\"> Add "+ _name +" to shopping list?</button>";
+        OUTPUT.innerHTML += "<br>"
     }
 
     OUTPUT.innerHTML = "<p>Hi, "+ name +".</p>"
@@ -96,4 +117,5 @@ function start() {
     displayProduct("Chocolate bar", 4, chocolateArray, CHOCOLATE_FIELD)
     displayProduct("Chips", 3, chipsArray, CHIPS_FIELD)
     displayProduct("Drink", 2.50, drinkArray, DRINK_FIELD)
+    OUTPUT.innerHTML += "<button onclick=\"displayList()\">Display Shopping List</button>"
 }
